@@ -1,0 +1,183 @@
+{
+	"info": {
+		"_postman_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+		"name": "Inyencfalat API",
+		"description": "API collection for Meal and Ingredient management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Meals",
+			"item": [
+				{
+					"name": "Get All Meals",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/meals",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"meals"
+							]
+						},
+						"description": "Listázza az összes ételt összetevőikkel együtt"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Meal",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Gulyásleves\",\n    \"description\": \"Hagyományos magyar gulyásleves\",\n    \"ingredients\": [\n        {\n            \"ingredient_id\": 1,\n            \"quantity\": 500\n        },\n        {\n            \"ingredient_id\": 2,\n            \"quantity\": 200\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/meals",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"meals"
+							]
+						},
+						"description": "Új étel létrehozása és hozzárendelése összetevőkhöz"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Meal",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Gulyásleves módosítva\",\n    \"description\": \"Frissített leírás\",\n    \"ingredients\": [\n        {\n            \"ingredient_id\": 1,\n            \"quantity\": 600\n        },\n        {\n            \"ingredient_id\": 3,\n            \"quantity\": 150\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/meals/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"meals",
+								"1"
+							]
+						},
+						"description": "Étel módosítása"
+					},
+					"response": []
+				},
+				{
+					"name": "Search Meals by Ingredient",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/meals/search/hagyma",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"meals",
+								"search",
+								"hagyma"
+							]
+						},
+						"description": "Kilistázza azokat az ételeket, amelyek tartalmazzák a megadott összetevőt"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ingredients",
+			"item": [
+				{
+					"name": "Get All Ingredients",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/ingredients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"ingredients"
+							]
+						},
+						"description": "Listázza az összes összetevőt"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000/api",
+			"type": "string"
+		}
+	]
+}
